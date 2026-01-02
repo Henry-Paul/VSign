@@ -1,44 +1,53 @@
+import { useState } from "react";
 import offerings from "../data/offerings.json";
 import OfferingCard from "../components/OfferingCard";
+import Modal from "../components/Modal";
+import BudgetPlanner from "../components/BudgetPlanner";
 
 export default function Offerings() {
+  const [selected, setSelected] = useState(null);
 
   const handlePlanBudget = (item) => {
-    console.log("Plan budget for:", item);
-    // Next step: open BudgetPlanner modal
+    setSelected(item);
   };
 
-  const handleBookAppointment = (item) => {
-    console.log("Book appointment for:", item);
-    // Next step: open Appointment form
+  const handleBookAppointment = (data) => {
+    console.log("Book appointment with data:", data);
+    // Next step: Appointment form + EmailJS + WhatsApp
   };
 
   return (
     <div className="container">
       <h1>Our Offerings</h1>
 
-      <p style={{ marginTop: "10px", color: "var(--muted)", maxWidth: "700px" }}>
-        Explore our signage products and services. Plan your budget using
-        real measurements and book an appointment when you’re ready.
+      <p style={{ color: "var(--muted)", maxWidth: "700px" }}>
+        Plan your signage budget using real measurements and book an appointment instantly.
       </p>
 
-      <div
-        style={{
-          marginTop: "30px",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "24px"
-        }}
-      >
-        {offerings.map((item) => (
+      <div style={{
+        marginTop: "30px",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+        gap: "24px"
+      }}>
+        {offerings.map(item => (
           <OfferingCard
             key={item.id}
             item={item}
             onPlanBudget={handlePlanBudget}
-            onBook={handleBookAppointment}
+            onBook={handlePlanBudget}
           />
         ))}
       </div>
+
+      <Modal open={!!selected} onClose={() => setSelected(null)}>
+        {selected && (
+          <BudgetPlanner
+            offering={selected}
+            onBook={handleBookAppointment}
+          />
+        )}
+      </Modal>
     </div>
   );
 }
