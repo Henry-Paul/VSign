@@ -3,26 +3,15 @@ import offerings from "../data/offerings.json";
 import OfferingCard from "../components/OfferingCard";
 import Modal from "../components/Modal";
 import BudgetPlanner from "../components/BudgetPlanner";
+import AppointmentForm from "../components/AppointmentForm";
 
 export default function Offerings() {
   const [selected, setSelected] = useState(null);
-
-  const handlePlanBudget = (item) => {
-    setSelected(item);
-  };
-
-  const handleBookAppointment = (data) => {
-    console.log("Book appointment with data:", data);
-    // Next step: Appointment form + EmailJS + WhatsApp
-  };
+  const [bookingContext, setBookingContext] = useState(null);
 
   return (
     <div className="container">
       <h1>Our Offerings</h1>
-
-      <p style={{ color: "var(--muted)", maxWidth: "700px" }}>
-        Plan your signage budget using real measurements and book an appointment instantly.
-      </p>
 
       <div style={{
         marginTop: "30px",
@@ -34,17 +23,31 @@ export default function Offerings() {
           <OfferingCard
             key={item.id}
             item={item}
-            onPlanBudget={handlePlanBudget}
-            onBook={handlePlanBudget}
+            onPlanBudget={() => setSelected(item)}
+            onBook={() => setSelected(item)}
           />
         ))}
       </div>
 
-      <Modal open={!!selected} onClose={() => setSelected(null)}>
+      {/* Budget Planner */}
+      <Modal open={!!selected && !bookingContext} onClose={() => setSelected(null)}>
         {selected && (
           <BudgetPlanner
             offering={selected}
-            onBook={handleBookAppointment}
+            onBook={(data) => {
+              setBookingContext({ ...data, offering: selected });
+              setSelected(null);
+            }}
+          />
+        )}
+      </Modal>
+
+      {/* Appointment Booking */}
+      <Modal open={!!bookingContext} onClose={() => setBookingContext(null)}>
+        {bookingContext && (
+          <AppointmentForm
+            context={bookingContext}
+            onClose={() => setBookingContext(null)}
           />
         )}
       </Modal>
