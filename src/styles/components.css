@@ -1,0 +1,298 @@
+/* WhatsApp Widget Styles */
+.whatsapp-widget {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 380px;
+  max-width: 90vw;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-2xl);
+  z-index: 999;
+  overflow: hidden;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+}
+
+.widget-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.widget-title span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.widget-body {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.welcome-message h3 {
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.welcome-message p {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.welcome-message ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.welcome-message li {
+  padding: 4px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.widget-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-base);
+}
+
+.option-btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.option-btn.secondary {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--border-light);
+}
+
+.chatbot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--primary-light);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.widget-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: var(--shadow-lg);
+  z-index: 998;
+  border: none;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: var(--space-md);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.form-privacy {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  text-align: center;
+  min-height: 300px;
+}
+
+.form-success h3 {
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+/* Compact Form for Product Pages */
+.compact-form {
+  font-size: 14px;
+}
+
+.compact-form .form-group {
+  gap: 8px;
+}
+
+.compact-form input,
+.compact-form textarea {
+  padding: 10px;
+}
+
+/* Product Enquiry Form */
+.product-enquiry-form {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+}
+
+.product-enquiry-form h4 {
+  margin-bottom: var(--space-md);
+}
+
+/* Enquiry Sections */
+.home-enquiry-section,
+.bulk-enquiry-section {
+  background: var(--surface-gray);
+  padding: var(--space-4xl) 0;
+}
+
+.enquiry-card,
+.bulk-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.enquiry-content h2 {
+  margin-bottom: var(--space-md);
+}
+
+.enquiry-content p {
+  margin-bottom: var(--space-lg);
+  color: var(--text-secondary);
+}
+
+.enquiry-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .whatsapp-widget {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px 16px 0 0;
+    max-height: 80vh;
+  }
+
+  .enquiry-card,
+  .bulk-card {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
