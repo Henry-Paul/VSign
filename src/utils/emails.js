@@ -8,7 +8,7 @@ const EMAILJS_CONFIG = {
 
 export const sendEmail = async (formData) => {
   try {
-    const emailjs = await import('emailjs-browser');
+    const emailjs = await import('@emailjs/browser');
     emailjs.init(EMAILJS_CONFIG.publicKey);
 
     const templateParams = {
