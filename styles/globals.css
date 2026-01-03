@@ -1,0 +1,296 @@
+/* =====================================================
+   GLOBAL RESET & BASE
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* =====================================================
+   CONTAINER & LAYOUT
+===================================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+/* prevent content sticking to footer */
+main {
+  min-height: calc(100vh - 200px);
+}
+
+/* =====================================================
+   TYPOGRAPHY HIERARCHY (EXECUTIVE)
+===================================================== */
+
+h1 {
+  font-size: 42px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1.35;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 14px;
+  max-width: 820px;
+}
+
+/* =====================================================
+   HEADER / NAVIGATION (MATCH ZIP)
+===================================================== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #374151;
+  margin-right: 22px;
+}
+
+.nav a:hover {
+  color: #0b5ed7;
+}
+
+/* =====================================================
+   BUTTONS (USED BY JS COMPONENTS)
+===================================================== */
+
+.btn,
+button {
+  background: #0b5ed7;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover,
+button:hover {
+  background: #084298;
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   SLIDERS (PRODUCT / TESTIMONIAL / PROJECT)
+===================================================== */
+
+.slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s ease;
+}
+
+.slider-track.reverse {
+  flex-direction: row-reverse;
+}
+
+/* =====================================================
+   CARDS (USED EVERYWHERE IN ZIP)
+===================================================== */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  min-width: 280px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+/* =====================================================
+   FAQ (MATCHES faqaccordion.js)
+===================================================== */
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 0;
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.faq-item p {
+  margin-top: 10px;
+  color: #6b7280;
+}
+
+/* =====================================================
+   BUDGET MODAL (MATCH budgetmodal.js)
+===================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+.modal label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  margin-top: 6px;
+}
+
+/* =====================================================
+   FLOATING ACTIONS (MATCH floatingactions.js)
+===================================================== */
+
+.floating-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1500;
+}
+
+.floating-actions a {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.floating-actions .whatsapp {
+  background: #25d366;
+}
+
+.floating-actions .call {
+  background: #0b5ed7;
+}
+
+/* =====================================================
+   FOOTER (MATCH footer.js)
+===================================================== */
+
+footer {
+  background: #f9fafb;
+  padding: 28px 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  margin-top: 80px;
+}
+
+/* =====================================================
+   RESPONSIVE FIXES
+===================================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  .slider-track {
+    gap: 16px;
+  }
+}
