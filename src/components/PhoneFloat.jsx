@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 
 const PhoneFloat = () => {
-  const phoneNumber = "91XXXXXXXXXX"; // Replace with your WhatsApp number
+  const phoneNumber = "91XXXXXXXXXX";
   
   return (
     <motion.a
