@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import WhatsAppFloat from './WhatsAppFloat';
+import WhatsAppFloat from './WhatsAppFloat.jsx';
 import PhoneFloat from './PhoneFloat';
 import { Helmet } from 'react-helmet-async';
 
