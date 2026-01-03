@@ -1,9 +1,9 @@
 // EmailJS Integration - Handles all form submissions
 const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',        // Get from emailjs.com
-  templateId: 'YOUR_TEMPLATE_ID',      // Create template with these variables
-  publicKey: 'YOUR_PUBLIC_KEY',        // Get from emailjs.com
-  whatsappNumber: '91XXXXXXXXXX'       // Your WhatsApp number
+  serviceId: 'YOUR_SERVICE_ID',
+  templateId: 'YOUR_TEMPLATE_ID',
+  publicKey: 'YOUR_PUBLIC_KEY',
+  whatsappNumber: '91XXXXXXXXXX'
 };
 
 export const sendEmail = async (formData) => {
